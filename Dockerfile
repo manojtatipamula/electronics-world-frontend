@@ -12,6 +12,6 @@ FROM nginx:1.23-alpine
 
 WORKDIR /usr/share/nginx/html
 RUN rm -rf *
-COPY --from=build /app/dist/angular-app/browser .
+COPY --from=build /app/dist/electronics-world-frontend/browser .
 EXPOSE 80
 ENTRYPOINT [ "nginx", "-g", "daemon off;" ]
