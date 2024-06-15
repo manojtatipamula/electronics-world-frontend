@@ -5,7 +5,7 @@ WORKDIR /app
 COPY package*.json .
 RUN npm ci 
 COPY . .
-RUN npm run build:prod
+RUN npm run build
 
 # Stage 2: Serve the Angular app with Nginx
 FROM nginx:1.23-alpine
