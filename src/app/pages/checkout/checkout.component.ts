@@ -4,6 +4,8 @@ import { HttpClient, HttpClientModule, HttpHeaders } from '@angular/common/http'
 // Import Router (optional) for navigation after successful API call
 import { Router } from '@angular/router';
 import { ApiService } from '../../core/services/api.service';
+import { environment } from '../../../environments/environment';
+import { APIConstants } from '../../core/constants/APIConstants';
 @Component({
   selector: 'app-checkout',
   standalone: true,
@@ -48,7 +50,8 @@ export class CheckoutComponent {
   }
 
   callBackendApi (){
-    this.apiService.post(`http://localhost:4000/api/v1/stripe/checkout/sessions` , {}).subscribe({
+    const api_url = `${environment.API_HOST}/${APIConstants.ROUTES.STRIPE_CHECKOUT}`
+    this.apiService.post(api_url , {}).subscribe({
       next: response => {
         console.log('API response:', response);
         // Handle successful response (optional)
