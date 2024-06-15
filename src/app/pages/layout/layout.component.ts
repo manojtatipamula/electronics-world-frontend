@@ -7,9 +7,10 @@ import { MatDividerModule } from '@angular/material/divider'
 import { MatToolbarModule } from '@angular/material/toolbar'
 import { MatTabsModule } from '@angular/material/tabs'
 import {MatIconModule} from '@angular/material/icon';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-layout',
   standalone: true,
   imports: [RouterOutlet,
     MatSlideToggleModule,
@@ -18,11 +19,12 @@ import {MatIconModule} from '@angular/material/icon';
     MatToolbarModule,
     MatTabsModule,
     MatIconModule,
+    MatTooltipModule,
     RouterLink
   ],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css',
+  templateUrl: './layout.component.html',
+  styleUrl: './layout.component.css'
 })
-export class AppComponent {
-  title = 'electronics-world-frontend';
+export class LayoutComponent {
+
 }

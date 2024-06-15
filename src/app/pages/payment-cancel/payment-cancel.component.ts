@@ -8,5 +8,7 @@ import { Component } from '@angular/core';
   styleUrl: './payment-cancel.component.css'
 })
 export class PaymentCancelComponent {
-
+  ngAfterViewInit(){
+    window.alert('Payment Cancelled')
+  }
 }

@@ -1,0 +1,52 @@
+mat-form-field {
+  margin-right: 12px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.shipping-card {
+  min-width: 120px;
+  margin: 20px auto;
+}
+
+.mat-radio-button {
+  display: block;
+  margin: 5px 0;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  margin: 5px;
+}
+
+.col {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.col:last-child {
+  margin-right: 0;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between; /* Space buttons evenly */
+  flex: 1 1 auto;
+}
+
+.signup-link-container {
+  margin-top: 10px; /* Add some margin for spacing */
+  text-align: center; /* Center the link text */
+  display: flex;
+  justify-content: space-between; /* Space buttons evenly */
+  flex: 1 1 auto;
+}
+
+.signup-link-container a {
+  color: blue; /* Adjust color as desired */
+  cursor: pointer;
+  text-decoration: underline;
+}

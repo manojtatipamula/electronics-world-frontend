@@ -1,0 +1,70 @@
+.bg-container {
+  /*background-image: url("https://img.freepik.com/free-vector/gradient-futuristic-background-with-connection-concept_23-2149104856.jpg?t=st=1718475460~exp=1718479060~hmac=6a79d609318f9fe7f45ac4b69de0a63d1e34bf473ecbef5682b2204a100dc648&w=1060"); /* Replace with your image path */
+  background-repeat: no-repeat; /* Prevent image tiling */
+  background-size: cover; /* Stretch image to fill container */
+  background-position: center; /* Center image horizontally and vertically */
+  height: 100vh; /* Ensure background covers full viewport height */
+  margin: 0; /* Remove default body margins */
+}
+.title-container {
+  display: flex;
+  align-items: center; /* Align icon and text vertically */
+}
+
+.title-container mat-icon {
+  flex-grow: 0; /* Prevent icon from expanding the container */
+  margin-right: 10px; /* Add space between icon and text */
+}
+
+mat-form-field {
+  margin-right: 12px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.shipping-card {
+  min-width: 120px;
+  margin: 20px auto;
+}
+
+.mat-radio-button {
+  display: block;
+  margin: 5px 0;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  margin: 5px;
+}
+
+.col {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.col:last-child {
+  margin-right: 0;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between; /* Space buttons evenly */
+  flex: 1 1 auto;
+}
+
+.signup-link-container {
+  margin-top: 10px; /* Add some margin for spacing */
+  text-align: center; /* Center the link text */
+  display: flex;
+  justify-content: space-between; /* Space buttons evenly */
+  flex: 1 1 auto;
+}
+
+.signup-link-container a {
+  color: blue; /* Adjust color as desired */
+  cursor: pointer;
+  text-decoration: underline;
+}

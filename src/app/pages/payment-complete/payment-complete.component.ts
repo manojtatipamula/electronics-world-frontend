@@ -8,5 +8,7 @@ import { Component } from '@angular/core';
   styleUrl: './payment-complete.component.css'
 })
 export class PaymentCompleteComponent {
-
+  ngAfterViewInit(){
+    window.alert('Payment Success')
+  }
 }

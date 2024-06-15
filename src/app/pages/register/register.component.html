@@ -1,0 +1,71 @@
+<mat-grid-list cols="1" rowHeight="100vh">
+  <mat-grid-tile>
+    <form [formGroup]="registerForm" novalidate (ngSubmit)="onSubmit()">
+      <mat-card class="shipping-card">
+        <mat-card-header>
+
+          <mat-card-title>
+            <div class="title-container">
+              <mat-icon  (click)="backtoLoginPage()" color="primary" style="cursor: pointer;">
+                arrow_back
+              </mat-icon>
+              <span>Register</span>
+            </div>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="row">
+            <div class="col">
+              <mat-form-field class="full-width">
+                <input matInput placeholder="First Name*" formControlName="firstName">
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <mat-form-field class="full-width">
+                <input matInput placeholder="Last Name*" formControlName="lastName">
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <mat-form-field class="full-width">
+                <input matInput placeholder="Email*" formControlName="email">
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <mat-form-field class="full-width">
+                <input matInput type="{{ showPassword ? 'text' : 'password' }}" placeholder="Password*"
+                  formControlName="password">
+                <mat-icon matSuffix (click)="toggleShowPassword()" color="primary" style="cursor: pointer;">
+                  {{ showPassword ? 'visibility_off' : 'visibility' }}
+                </mat-icon>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <mat-form-field class="full-width">
+                <input matInput type="{{ showPassword ? 'text' : 'password' }}" placeholder="Confirm Password*"
+                  formControlName="confirmPassword">
+                <mat-icon matSuffix (click)="toggleShowPassword()" color="primary" style="cursor: pointer;">
+                  {{ showPassword ? 'visibility_off' : 'visibility' }}
+                </mat-icon>
+              </mat-form-field>
+            </div>
+          </div>
+          <mat-card-actions>
+            <div class="button-container">
+              <button mat-raised-button color="primary" type="submit">Register</button>
+              <button mat-raised-button color="warn" type="reset">Reset</button>
+            </div>
+          </mat-card-actions>
+
+        </mat-card-content>
+      </mat-card>
+    </form>
+  </mat-grid-tile>
+</mat-grid-list>
