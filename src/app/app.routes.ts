@@ -1,6 +1,4 @@
 import { Routes } from '@angular/router';
-import { PaymentCompleteComponent } from './pages/payment-complete/payment-complete.component';
-import { PaymentCancelComponent } from './pages/payment-cancel/payment-cancel.component';
 import { LogoutComponent } from './pages/logout/logout.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { LoginComponent } from './pages/login/login.component';
@@ -9,6 +7,9 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { AllUsersComponent } from './pages/all-users/all-users.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { authGuard } from './core/gaurds/auth.guard';
+import { CartComponent } from './pages/cart/cart.component';
+import { ListOrdersComponent } from './pages/list-orders/list-orders.component';
+import { PaymentCompleteComponent } from './pages/payment-complete/payment-complete.component';
 
 export const routes: Routes = [
     {
@@ -25,14 +26,25 @@ export const routes: Routes = [
     {
         path: '',
         component: LayoutComponent,
+        canActivate : [authGuard],
         children: [{
-            path: 'dashboard',
+            path: 'home',
             component: DashboardComponent,
             canActivate: [authGuard]
         },
         {
-            path: 'checkout',
-            component: CheckoutComponent,
+            path: 'cart',
+            component: CartComponent,
+            canActivate: [authGuard]   
+        },
+        {
+            path: 'orders',
+            component: ListOrdersComponent,
+            canActivate: [authGuard]     
+        },
+        {
+            path: 'payment-complete',
+            component: PaymentCompleteComponent,
             canActivate: [authGuard]
         },
         {
@@ -40,20 +52,11 @@ export const routes: Routes = [
             component: AllUsersComponent,
             canActivate: [authGuard]
         },
-        ]
+        {
+            path: 'logout',
+            component: LogoutComponent,
+            canActivate: [authGuard]
+        }]
     },
-    {
-        path: 'checkout',
-        component: CheckoutComponent
-    },
-    {
-        path: 'payment-complete',
-        component: PaymentCompleteComponent
-    }, {
-        path: 'payment-cancel',
-        component: PaymentCancelComponent
-    }, {
-        path: 'logout',
-        component: LogoutComponent
-    }
+    { path: '**', redirectTo: '', pathMatch: 'full' }
 ];

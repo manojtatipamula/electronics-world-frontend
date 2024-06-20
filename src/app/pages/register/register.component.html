@@ -1,4 +1,5 @@
-<mat-grid-list cols="1" rowHeight="100vh">
+<div class="logo-container"> <img src="assets/logo-transparent.png" alt="Electronics World Logo"> </div>
+<mat-grid-list cols="1" rowHeight="100vh" style="margin-top: -100px;">
   <mat-grid-tile>
     <form [formGroup]="registerForm" novalidate (ngSubmit)="onSubmit()">
       <mat-card class="shipping-card">

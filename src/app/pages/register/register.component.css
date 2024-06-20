@@ -6,6 +6,21 @@
   height: 100vh; /* Ensure background covers full viewport height */
   margin: 0; /* Remove default body margins */
 }
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 10px; /* Optional padding */
+  height: 100px;
+}
+
+.logo-container img {
+  width: 250px; /* Adjust width as needed */
+  height: auto; /* Maintain aspect ratio */
+}
+
+
 .title-container {
   display: flex;
   align-items: center; /* Align icon and text vertically */

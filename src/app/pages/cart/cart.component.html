@@ -1,0 +1,73 @@
+<mat-grid-list cols="{{cols}}" rowHeight="800">
+  <mat-grid-tile>
+    <mat-card style="width: 600px; margin-top: -500px;">
+      <mat-card-header>
+        <mat-card-title>Cart Details</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-table [dataSource]="cartItems" mat-elevation="4" >
+          <ng-container matColumnDef="product">
+            <mat-header-cell *matHeaderCellDef> Product </mat-header-cell>
+            <mat-cell *matCellDef="let product">
+              <div fxLayout="row" fxLayoutAlign="space-between center">
+                <img *ngIf="product.image" [src]="product.image" alt="{{ product.name }}" width="50" height="50"> <span>{{ product.name }}</span>
+              </div>
+            </mat-cell>
+          </ng-container>
+    
+          <ng-container matColumnDef="price">
+            <mat-header-cell *matHeaderCellDef> Price </mat-header-cell>
+            <mat-cell *matCellDef="let product"> {{ product.price | currency:'USD':'symbol' }} </mat-cell>
+          </ng-container>
+    
+          <ng-container matColumnDef="quantity">
+            <mat-header-cell *matHeaderCellDef> Quantity </mat-header-cell>
+            <mat-cell *matCellDef="let product">
+              <div fxLayout="row" fxLayoutGap="5px">
+                <button mat-icon-button (click)="onQuantityChange(product, -1)">
+                  <mat-icon>remove</mat-icon>
+                </button>
+                <span>{{ product.selectedQuantity }}</span>
+                <button mat-icon-button (click)="onQuantityChange(product, 1)">
+                  <mat-icon>add</mat-icon>
+                </button>
+              </div>
+            </mat-cell>
+          </ng-container>
+    
+          <ng-container matColumnDef="subtotal">
+            <mat-header-cell *matHeaderCellDef> Subtotal </mat-header-cell>
+            <mat-cell *matCellDef="let product"> {{ product.price * product.selectedQuantity | currency:'USD':'symbol' }} </mat-cell>
+          </ng-container>
+    
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <mat-card style="width: 600px; margin-top: -500px;">
+      <mat-card-header>
+        <mat-card-title>Order Details</mat-card-title>
+      </mat-card-header>
+      <mat-card-content style="text-align: right;">
+        <div style="margin-top: 5px; font-size: 15px;">
+          <span>Subtotal: </span>
+          <span>{{ subTotal | currency:'USD':'symbol' }}</span>
+        </div>
+        <div style="margin-top: 10px; font-size: 15px;">
+          <span>Estimated Tax: {{ estimatedTaxPercentage }}% (Est.) : </span>
+          <span>{{ estimatedTax | currency:'USD':'symbol' }}</span>
+        </div>
+        <div style="margin-top: 20px; font-size: 30px;">
+          <span>Grand Total: </span>
+          <span>{{ grandTotal | currency:'USD':'symbol' }}</span>
+        </div>
+        <div style="margin-top: 20px;">
+          <button mat-raised-button color="primary" (click)="placeOrder()">Place Order</button>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>

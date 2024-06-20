@@ -1,18 +1,25 @@
-<div>
-  <mat-toolbar color="primary">
-    <button routerLink="dashboard" mat-icon-button class="example-icon"
+<div class="layout">
+  <div class="layout-header">
+    <mat-toolbar color="primary">
+      <button routerLink="home" mat-icon-button class="example-icon" matTooltip="Home"
       aria-label="Example icon-button with home icon">
-      <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>
+    <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>
     </button>
-    <span class="example-spacer"></span>
-
-    <span>Electronics World</span>
-    <span class="example-spacer"></span>
-
-    <button routerLink="logout" matTooltip="Logout from the application" mat-raised-button color="basic" aria-label="Example icon-button with share icon">
-      Logout
-    </button>
-  </mat-toolbar>
+      <span>Electronics World</span>
+      <span class="example-spacer"></span>
+      <button mat-icon-button routerLink="/cart" matTooltip="Go to Cart">
+        <mat-icon aria-hidden="false"  matBadgePosition="after" [matBadge]="cartTotalQuantity.toString()" matBadgeColor="warn">shopping_cart</mat-icon>
+      </button>
+        <button mat-icon-button [matMenuTriggerFor]="userMenu" matTooltip="User Menu">
+          <mat-icon>account_circle</mat-icon> </button>
+        <mat-menu #userMenu="matMenu">
+          <span mat-menu-item class="user-name">Hello, {{fullName}}</span>
+          <button mat-menu-item routerLink="/orders" class="clickable-link">View My Orders</button>
+          <button mat-menu-item routerLink="/logout" matTooltip="Logout from the application" class="clickable-link">Logout</button>
+        </mat-menu>
+    </mat-toolbar>
+  </div>
+  <div class="layout-content">
+    <router-outlet></router-outlet>
+  </div>
 </div>
-
-<router-outlet></router-outlet>
