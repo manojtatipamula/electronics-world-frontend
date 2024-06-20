@@ -45,6 +45,10 @@ export class LoginComponent {
 
   login() {
     const loginFormValues = this.loginForm.value
+    if(this.loginForm.invalid){
+      this.helperService.openSnackBar(`Please fill all required fields` , 2000)
+      return
+    }
     const postData: any = {
       "email": loginFormValues.email,
       "password": loginFormValues.password

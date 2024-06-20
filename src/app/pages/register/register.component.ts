@@ -54,6 +54,10 @@ export class RegisterComponent {
     this.register()
   }
   register(){
+    if(this.registerForm.invalid){
+      this.helperService.openSnackBar(`Please fill all required fields` , 2000)
+      return
+    }
     const registerFormValues = this.registerForm.value
     const payload = {
       email: registerFormValues.email,
