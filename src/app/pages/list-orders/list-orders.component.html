@@ -1,0 +1,31 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>My Orders</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-table [dataSource]="orders" mat-elevation="4">
+
+      <ng-container matColumnDef="orderId">
+        <mat-header-cell *matHeaderCellDef> Order ID </mat-header-cell>
+        <mat-cell *matCellDef="let order"> {{ order?.orderId }} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="orderDate">
+        <mat-header-cell *matHeaderCellDef> Order Date </mat-header-cell>
+        <mat-cell *matCellDef="let order"> {{ order?.orderDate }} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="orderTotal">
+        <mat-header-cell *matHeaderCellDef> Order Total </mat-header-cell>
+        <mat-cell *matCellDef="let order"> {{ order?.totalPrice | currency:'USD':'symbol' }} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="paymentStatus">
+        <mat-header-cell *matHeaderCellDef> Payment Status </mat-header-cell>
+        <mat-cell *matCellDef="let order"> {{ order?.paymentStatus }} </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+  </mat-card-content>
+</mat-card>

@@ -40,7 +40,6 @@ export class LoginComponent {
     password: [null, Validators.required],
   })
   onSubmit(): void {
-    // alert('Thanks!');
     this.login()
   }
 
@@ -57,8 +56,9 @@ export class LoginComponent {
         // Handle successful response (optional)
         if (response?.token) {
           localStorage.setItem('token', response.token)
+          localStorage.setItem('userData', JSON.stringify(response.data))
           if (this.router) {
-            this.router.navigateByUrl('/dashboard')
+            this.router.navigateByUrl('/home')
           }
         } else {
           this.helperService.openSnackBar('No token provided!')

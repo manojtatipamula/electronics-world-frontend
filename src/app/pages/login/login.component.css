@@ -1,3 +1,23 @@
+/* login.component.css */
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 10px; /* Optional padding */
+  height: 100px;
+}
+
+.logo-container img {
+  width: 250px; /* Adjust width as needed */
+  height: auto; /* Maintain aspect ratio */
+}
+
+mat-grid-list {
+  display: grid;
+  grid-template-rows: auto 1fr; /* Allocate space for logo and form */
+  height: 100vh; /* Ensure login form fills viewport height */
+  padding: 10px;
+}
 mat-form-field {
   margin-right: 12px;
 }

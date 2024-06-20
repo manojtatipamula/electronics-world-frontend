@@ -19,5 +19,5 @@ export class HelperService {
       verticalPosition: this.verticalPosition,
       duration: SNACK_BAR_TIMEOUT_MS
     });
-  }   
+  }
 }

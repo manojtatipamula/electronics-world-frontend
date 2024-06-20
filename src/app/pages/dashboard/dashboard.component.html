@@ -1,13 +1,58 @@
-<div class="container">
-  <button routerLink="/checkout" mat-raised-button color="primary" aria-label="Example icon-button with share icon">
-    checkout
-  </button>
-</div>
+<div class="layout">
+  <mat-grid-list [cols]="2" rowHeight="100px" style="margin-right:5% ; margin-left: 5%;">
+    <mat-grid-tile>
+      <mat-form-field appearance="fill" class="filter-field">
+        <mat-label>Filter by Category</mat-label>
+        <mat-select (selectionChange)="applyCategoryFilter($event)" [formControl]="categoriesFormControl" multiple>
+          @for (category of categoriesList; track category) {
+          <mat-option [value]="category">{{category}}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-form-field appearance="fill">
+        <mat-label>Search by Name</mat-label>
+        <input matInput type="text" [formControl]="searchTermControl">
+      </mat-form-field>
+      <div style="margin: 10px; margin-top: -10px;">
+        <button mat-raised-button color="accent" (click)="resetProducts()">Reset Filters</button>
+      </div>
+    </mat-grid-tile>
 
-<div class="container">
-  <button routerLink="/all-users" mat-raised-button color="primary" aria-label="Example icon-button with share icon">
-    Show All Users
-  </button>
-</div>
+  </mat-grid-list>
 
-<router-outlet></router-outlet>
+  <mat-grid-list [cols]="cols" rowHeight="500px">
+    <mat-grid-tile *ngFor="let product of products">
+      <mat-card class="mat-elevation-z8" style="width: 300px">
+        <mat-card-header>
+          <mat-card-title style="line-height: 1.5;">{{ product.name }}</mat-card-title>
+          <mat-card-subtitle *ngIf="product.price">
+            <span>Price: {{ product.price }}</span>
+          </mat-card-subtitle>
+          <mat-card-subtitle *ngIf="product.stock">
+            <span>Stock: {{ product.stock }}</span>
+          </mat-card-subtitle>
+          <mat-card-subtitle *ngIf="product.category">
+            <span>Category: {{ product.category }}</span>
+          </mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <img mat-card-image [src]="product.image" alt="{{ product.name }}" style="width: 250px">
+        </mat-card-content>
+        <mat-card-actions>
+          <div>
+            <button mat-icon-button (click)="decreaseStock(product)">
+              <mat-icon style="color: red;">-</mat-icon>
+            </button>
+            <span class="stock-value">{{ product.selectedQuantity?? 0}}</span>
+            <button mat-icon-button (click)="increaseStock(product)">
+              <mat-icon style="color:blue">+</mat-icon>
+            </button>
+          </div>
+          <button mat-raised-button color="primary" (click)="addToCart(product)">Add to Cart</button>
+        </mat-card-actions>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
