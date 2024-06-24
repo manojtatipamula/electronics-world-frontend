@@ -1,7 +1,10 @@
 # ElectronicsWorldFrontend
 
-## notes
-- retrigger deployment
+## Notes
+- This front-end code base is configured with github actions to deploy inside a docker within an EC2 container. Please check .github/workflows/cicd.yml for further details
+- It is integrated with Node.js Backend code base for API
+- Minimum Node.JS version required : V18.20.2
+- Minimum Angular version required: v17
 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.8.
